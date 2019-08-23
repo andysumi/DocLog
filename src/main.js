@@ -1,9 +1,10 @@
-/* exported JSON_SPACE, INFO, ERROR, WARN*/
+/* exported JSON_SPACE, INFO, ERROR, WARN, DEBUG */
 
 var JSON_SPACE = 0;
 var INFO = '#000000';
 var ERROR = '#CC0000';
 var WARN = '#E69138';
+var DEBUG = '#CCCCCC';
 
 /**
  * インスタンスを作成する
@@ -41,5 +42,15 @@ function error(message, args) { // eslint-disable-line no-unused-vars
  * @return {DocLog}
  */
 function warn(message, args) { // eslint-disable-line no-unused-vars
+  throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
+}
+
+/**
+ * DEBUGレベルのログを出力する
+ * @param {String} message 【必須】出力するメッセージ
+ * @param {Object...} args messageにフォーマット文字列を指定した場合の対象の値
+ * @return {DocLog}
+ */
+function debug(message, args) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
 }

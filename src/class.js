@@ -1,4 +1,4 @@
-/*globals JSON_SPACE, INFO, ERROR, WARN*/
+/*globals JSON_SPACE, INFO, ERROR, WARN, DEBUG*/
 
 (function (global) {
   var DocLog = (function () {
@@ -13,6 +13,7 @@
       this.INFO = INFO;
       this.ERROR = ERROR;
       this.WARN = WARN;
+      this.DEBUG = DEBUG;
       this.JSON_SPACE = JSON_SPACE;
     }
 
@@ -32,6 +33,12 @@
       if (!message) throw new Error('"message"は必須です');
 
       return this.log_(arguments, this.WARN);
+    };
+
+    DocLog.prototype.debug = function (message, args) { // eslint-disable-line no-unused-vars
+      if (!message) throw new Error('"message"は必須です');
+
+      return this.log_(arguments, this.DEBUG);
     };
 
     DocLog.prototype.log_ = function (msgArgs, color) {
