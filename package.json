@@ -1,0 +1,24 @@
+{
+  "name": "DocLog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint src -c .eslintrc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andysumi/DocLog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andysumi/DocLog/issues"
+  },
+  "homepage": "https://github.com/andysumi/DocLog#readme",
+  "dependencies": {
+    "eslint": "^6.2.1",
+    "eslint-plugin-googleappsscript": "^1.0.3"
+  }
+}
