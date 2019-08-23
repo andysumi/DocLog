@@ -1,4 +1,4 @@
-/*globals JSON_SPACE, INFO*/
+/*globals JSON_SPACE, INFO, ERROR*/
 
 (function (global) {
   var DocLog = (function () {
@@ -11,6 +11,7 @@
         throw new Error('ドキュメントが存在しません。"fileId"をご確認ください。');
       }
       this.INFO = INFO;
+      this.ERROR = ERROR;
       this.JSON_SPACE = JSON_SPACE;
     }
 
@@ -18,6 +19,12 @@
       if (!message) throw new Error('"message"は必須です');
 
       return this.log_(arguments, this.INFO);
+    };
+
+    DocLog.prototype.error = function (message, args) { // eslint-disable-line no-unused-vars
+      if (!message) throw new Error('"message"は必須です');
+
+      return this.log_(arguments, this.ERROR);
     };
 
     DocLog.prototype.log_ = function (msgArgs, color) {
