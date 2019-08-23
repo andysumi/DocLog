@@ -24,8 +24,8 @@ jobs:
           steps:
             - run: npm install
       - run:
-          name: run markdownlint check
-          command: npx markdownlint src -c .markdownlint.json
+          name: run lint check
+          command: npx eslint src -c .eslintrc.json
   upload:
     parameters:
       env:
