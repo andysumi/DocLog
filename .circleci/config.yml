@@ -3,12 +3,6 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.4
 
-executors:
-  default:
-    working_directory: ~/project
-    docker:
-      - image: circleci/node:latest
-
 commands:
   create_clasp_files:
     parameters:
@@ -36,11 +30,9 @@ jobs:
     parameters:
       env:
         type: string
-    executor:
-      name: default
+    executor: node/default
     steps:
       - checkout
-      - install_dependencies
       - create_clasp_files:
           env: << parameters.env >>
       - run:
@@ -52,11 +44,9 @@ jobs:
         type: string
       env_is_prop:
         type: boolean
-    executor:
-      name: default
+    executor: node/default
     steps:
       - checkout
-      - install_dependencies
       - create_clasp_files:
           env: << parameters.env >>
       - when:
