@@ -1,3 +1,5 @@
+/*globals JSON_SPACE, INFO*/
+
 (function (global) {
   var DocLog = (function () {
     function DocLog(fileId) {
@@ -8,7 +10,26 @@
       } catch (err) {
         throw new Error('ドキュメントが存在しません。"fileId"をご確認ください。');
       }
+      this.INFO = INFO;
+      this.JSON_SPACE = JSON_SPACE;
     }
+
+    DocLog.prototype.info = function (message, args) { // eslint-disable-line no-unused-vars
+      if (!message) throw new Error('"message"は必須です');
+
+      return this.log_(arguments, this.INFO);
+    };
+
+    DocLog.prototype.log_ = function (msgArgs, color) {
+      var args = [];
+      for (var i = 0; i < msgArgs.length; i++) {
+        var element = (typeof msgArgs[i] == 'object') ? JSON.stringify(msgArgs[i], null, this.JSON_SPACE) : msgArgs[i];
+        args.push(element);
+      }
+
+      var msg = (msgArgs.length > 1) ? Utilities.formatString.apply(this, args) : args[0];
+      this.doc.getBody().appendParagraph('[' + Utilities.formatDate(new Date(), 'JST', 'yy-MM-dd HH:mm:ss \'JST\'') + '] ' + msg).setForegroundColor(color);
+    };
 
     return DocLog;
   })();
