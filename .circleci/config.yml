@@ -26,7 +26,7 @@ jobs:
     steps:
       - checkout
       - node/with-cache:
-          cache-version: v1
+          cache-version: v0
           steps:
             - run: npm install
       - run:
