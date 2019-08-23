@@ -20,28 +20,28 @@
     DocLog.prototype.info = function (message, args) { // eslint-disable-line no-unused-vars
       if (!message) throw new Error('"message"は必須です');
 
-      return this.log_(arguments, this.INFO);
+      return this.log_(arguments, 'INFO', this.INFO);
     };
 
     DocLog.prototype.error = function (message, args) { // eslint-disable-line no-unused-vars
       if (!message) throw new Error('"message"は必須です');
 
-      return this.log_(arguments, this.ERROR);
+      return this.log_(arguments, 'ERROR', this.ERROR);
     };
 
     DocLog.prototype.warn = function (message, args) { // eslint-disable-line no-unused-vars
       if (!message) throw new Error('"message"は必須です');
 
-      return this.log_(arguments, this.WARN);
+      return this.log_(arguments, 'WARN', this.WARN);
     };
 
     DocLog.prototype.debug = function (message, args) { // eslint-disable-line no-unused-vars
       if (!message) throw new Error('"message"は必須です');
 
-      return this.log_(arguments, this.DEBUG);
+      return this.log_(arguments, 'DEBUG', this.DEBUG);
     };
 
-    DocLog.prototype.log_ = function (msgArgs, color) {
+    DocLog.prototype.log_ = function (msgArgs, level, color) {
       var args = [];
       for (var i = 0; i < msgArgs.length; i++) {
         var element = (typeof msgArgs[i] == 'object') ? JSON.stringify(msgArgs[i], null, this.JSON_SPACE) : msgArgs[i];
@@ -49,7 +49,8 @@
       }
 
       var msg = (msgArgs.length > 1) ? Utilities.formatString.apply(this, args) : args[0];
-      this.doc.getBody().appendParagraph('[' + Utilities.formatDate(new Date(), 'JST', 'yy-MM-dd HH:mm:ss \'JST\'') + '] ' + msg).setForegroundColor(color);
+      var log = Utilities.formatString('%s [%s] %s', (level + '     ').slice(0,5), Utilities.formatDate(new Date(), 'JST', 'yy-MM-dd HH:mm:ss \'JST\''), msg);
+      this.doc.getBody().appendParagraph(log).setForegroundColor(color);
     };
 
     return DocLog;
