@@ -41,6 +41,14 @@
       return this.log_(arguments, 'DEBUG', this.DEBUG);
     };
 
+    DocLog.prototype.appendHorizontalLine = function () {
+      return this.doc.getBody().appendHorizontalRule();
+    };
+
+    DocLog.prototype.appendPageBreak = function () {
+      return this.doc.getBody().appendPageBreak();
+    };
+
     DocLog.prototype.log_ = function (msgArgs, level, color) {
       var args = [];
       for (var i = 0; i < msgArgs.length; i++) {
@@ -50,7 +58,7 @@
 
       var msg = (msgArgs.length > 1) ? Utilities.formatString.apply(this, args) : args[0];
       var log = Utilities.formatString('%s [%s] %s', (level + '     ').slice(0,5), Utilities.formatDate(new Date(), 'JST', 'yy-MM-dd HH:mm:ss \'JST\''), msg);
-      this.doc.getBody().appendParagraph(log).setForegroundColor(color);
+      return this.doc.getBody().appendParagraph(log).setForegroundColor(color);
     };
 
     return DocLog;
