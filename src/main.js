@@ -54,3 +54,11 @@ function warn(message, args) { // eslint-disable-line no-unused-vars
 function debug(message, args) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
 }
+
+/**
+ * 区切り線を出力する
+ * @return {HorizontalRule}
+ */
+function appendHorizontalLine() { // eslint-disable-line no-unused-vars
+  throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
+}

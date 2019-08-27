@@ -41,6 +41,10 @@
       return this.log_(arguments, 'DEBUG', this.DEBUG);
     };
 
+    DocLog.prototype.appendHorizontalLine = function () {
+      return this.doc.getBody().appendHorizontalRule();
+    };
+
     DocLog.prototype.log_ = function (msgArgs, level, color) {
       var args = [];
       for (var i = 0; i < msgArgs.length; i++) {
