@@ -58,7 +58,7 @@
 
       var msg = (msgArgs.length > 1) ? Utilities.formatString.apply(this, args) : args[0];
       var log = Utilities.formatString('%s [%s] %s', (level + '     ').slice(0,5), Utilities.formatDate(new Date(), 'JST', 'yy-MM-dd HH:mm:ss \'JST\''), msg);
-      this.doc.getBody().appendParagraph(log).setForegroundColor(color);
+      return this.doc.getBody().appendParagraph(log).setForegroundColor(color);
     };
 
     return DocLog;

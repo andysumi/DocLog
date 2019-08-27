@@ -19,7 +19,7 @@ function create(fileId) { // eslint-disable-line no-unused-vars
  * INFOレベルのログを出力する
  * @param {String} message 【必須】出力するメッセージ
  * @param {Object...} args messageにフォーマット文字列を指定した場合の対象の値
- * @return {DocLog}
+ * @return {Paragraph}
  */
 function info(message, args) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
@@ -29,7 +29,7 @@ function info(message, args) { // eslint-disable-line no-unused-vars
  * ERRORレベルのログを出力する
  * @param {String} message 【必須】出力するメッセージ
  * @param {Object...} args messageにフォーマット文字列を指定した場合の対象の値
- * @return {DocLog}
+ * @return {Paragraph}
  */
 function error(message, args) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
@@ -39,7 +39,7 @@ function error(message, args) { // eslint-disable-line no-unused-vars
  * WARNレベルのログを出力する
  * @param {String} message 【必須】出力するメッセージ
  * @param {Object...} args messageにフォーマット文字列を指定した場合の対象の値
- * @return {DocLog}
+ * @return {Paragraph}
  */
 function warn(message, args) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
@@ -49,7 +49,7 @@ function warn(message, args) { // eslint-disable-line no-unused-vars
  * DEBUGレベルのログを出力する
  * @param {String} message 【必須】出力するメッセージ
  * @param {Object...} args messageにフォーマット文字列を指定した場合の対象の値
- * @return {DocLog}
+ * @return {Paragraph}
  */
 function debug(message, args) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
