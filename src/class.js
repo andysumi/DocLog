@@ -45,6 +45,10 @@
       return this.doc.getBody().appendHorizontalRule();
     };
 
+    DocLog.prototype.appendPageBreak = function () {
+      return this.doc.getBody().appendPageBreak();
+    };
+
     DocLog.prototype.log_ = function (msgArgs, level, color) {
       var args = [];
       for (var i = 0; i < msgArgs.length; i++) {

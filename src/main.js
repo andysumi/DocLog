@@ -62,3 +62,11 @@ function debug(message, args) { // eslint-disable-line no-unused-vars
 function appendHorizontalLine() { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
 }
+
+/**
+ * 改行を出力する
+ * @return {PageBreak}
+ */
+function appendPageBreak() { // eslint-disable-line no-unused-vars
+  throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
+}
