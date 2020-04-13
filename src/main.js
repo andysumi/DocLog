@@ -1,10 +1,11 @@
-/* exported JSON_SPACE, INFO, ERROR, WARN, DEBUG */
+/* exported JSON_SPACE, INFO, ERROR, WARN, DEBUG, DEBUG_MODE */
 
 var JSON_SPACE = 0;
 var INFO = '#000000';
 var ERROR = '#CC0000';
 var WARN = '#E69138';
 var DEBUG = '#CCCCCC';
+var DEBUG_MODE = false;
 
 /**
  * インスタンスを作成する
