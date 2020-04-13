@@ -22,8 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Create credential file
-        run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.LARGE_SECRET_PASSPHRASE}}" --output ~/.clasprc.json creds.json.gpg
-        run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.LARGE_SECRET_PASSPHRASE}}" --output .clasp.json clasp_dev.json.gpg
+        run: |
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.LARGE_SECRET_PASSPHRASE}}" --output ~/.clasprc.json creds.json.gpg
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.LARGE_SECRET_PASSPHRASE}}" --output .clasp.json clasp_dev.json.gpg
       - name: Upload files
         run: npx @google/clasp push --force
       - name: Create new version
