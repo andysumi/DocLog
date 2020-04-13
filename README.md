@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/andysumi/DocLog.svg?style=svg)](https://circleci.com/gh/andysumi/DocLog)
+[![clasp](https://img.shields.io/badge/built%20with-clasp-4285f4.svg)](https://github.com/google/clasp) ![Test](https://github.com/andysumi/DocLog/workflows/Test/badge.svg) ![Deploy](https://github.com/andysumi/DocLog/workflows/Deploy/badge.svg)
 
 # DocLog
 
